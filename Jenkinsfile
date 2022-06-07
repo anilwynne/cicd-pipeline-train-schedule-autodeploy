@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE_NAME = "anilwynne/train-schedule"
     }
     stages {
-        stage('compile') {
+        /*stage('compile') {
             steps {
                 sh 'mvn -B compile'
             }
@@ -19,14 +19,14 @@ pipeline {
             steps {
                 sh 'mvn -B package'
             }
+        }*/
+        stage('Build') {
+            steps {
+               echo 'Running build automation'
+               sh 'sudo ./gradlew build --no-daemon'
+               archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+            }
         }
-        //stage('Build') {
-            //steps {
-               // echo 'Running build automation'
-               // sh 'sudo ./gradlew build --no-daemon'
-               // archiveArtifacts artifacts: 'dist/trainSchedule.zip'
-            //}
-        //}
         stage('Build Docker Image') {
             when {
                 branch 'master'
