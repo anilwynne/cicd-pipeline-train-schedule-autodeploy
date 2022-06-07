@@ -5,6 +5,21 @@ pipeline {
         DOCKER_IMAGE_NAME = "anilwynne/train-schedule"
     }
     stages {
+        stage('compile') {
+            steps {
+                sh 'mvn -B compile'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'mvn -B test'
+            }
+        }
+        stage('package') {
+            steps {
+                sh 'mvn -B package'
+            }
+        }
         //stage('Build') {
             //steps {
                // echo 'Running build automation'
