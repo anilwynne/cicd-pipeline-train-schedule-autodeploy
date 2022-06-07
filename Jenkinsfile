@@ -34,7 +34,7 @@ pipeline {
         }
          stage ('kubernetes deployment') {
             steps {
-               sh 'kubectl apply -f train-schedule-kube.yml'
+               sh 'sudo kubectl apply -f train-schedule-kube.yml'
               //  sh 'kubectl set image deployment addressbook addressbook=devopsxprts/addressbook:$BUILD_NUMBER'
                 
             }
