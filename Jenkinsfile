@@ -32,7 +32,17 @@ pipeline {
                 }
             }
         }
-        stage('CanaryDeploy') {
+         stage ('kubernetes deployment') {
+            steps {
+               sh 'kubectl apply -f train-schedule-kube.yml'
+              //  sh 'kubectl set image deployment addressbook addressbook=devopsxprts/addressbook:$BUILD_NUMBER'
+                
+            }
+        }
+
+    }
+}
+        /*stage('CanaryDeploy') {
             //when {
                 //branch 'master'
            // }
