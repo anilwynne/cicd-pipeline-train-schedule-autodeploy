@@ -4,7 +4,7 @@ pipeline {
         //be sure to replace "anilwynne" with your own Docker Hub username
         DOCKER_IMAGE_NAME = "anilwynne/train-schedule"
     }
-    //stages {
+    stages {
         //stage('Build') {
             //steps {
                // echo 'Running build automation'
