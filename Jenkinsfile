@@ -34,8 +34,8 @@ pipeline {
         }
          stage ('kubernetes deployment') {
             steps {
-               //sh 'sudo kubectl apply -f train-schedule-kube.yml'
-               sh 'kubectl set image deployment  anilwynne/devopsproject2=anilwynne/devopsproject2:$BUILD_NUMBER'
+               sh 'sudo kubectl apply -f train-schedule-kube.yml'
+               //sh 'kubectl set image deployment  anilwynne/devopsproject2=anilwynne/devopsproject2:$BUILD_NUMBER'
                 
             }
         }
