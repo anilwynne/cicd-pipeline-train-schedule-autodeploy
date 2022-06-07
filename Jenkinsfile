@@ -25,7 +25,7 @@ pipeline {
         }
          stage ('build and push docker image') {
             steps {
-                sh 'sudo docker build -t anilwynne/DevOpsProject2:$BUILD_NUMBER .'
+                sh 'sudo docker build -t anilwynne/devopsproject2:$BUILD_NUMBER .'
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     sh "sudo docker login -u ${env.user} -p ${env.pass}"
                     sh 'sudo docker push devopsxprts/addressbook:$BUILD_NUMBER'
