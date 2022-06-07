@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: train-schedule
-        image: anilwynne/devopsproject2
+        image: devopsproject2
         ports:
         - containerPort: 8080
         livenessProbe:
